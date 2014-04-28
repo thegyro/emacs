@@ -32,6 +32,7 @@
 ;; Boston, MA 02110-1301, USA.
 
 ;;; Code:
+(setq prelude-flyspell nil)
 (defvar current-user
       (getenv
        (if (equal system-type 'windows-nt) "USERNAME" "USER")))
@@ -123,5 +124,15 @@ by Prelude.")
 (prelude-eval-after-init
  ;; greet the use with some useful tip
  (run-at-time 5 nil 'prelude-tip-of-the-day))
+(global-linum-mode 1)
+(setq linum-format "%d ")
+(global-hl-line-mode nil)
 
+(load-theme  'ample t)
+;;(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-12"))
 ;;; init.el ends here
+
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+(set-face-attribute 'web-mode-css-rule-face nil :foreground "Pink3")
